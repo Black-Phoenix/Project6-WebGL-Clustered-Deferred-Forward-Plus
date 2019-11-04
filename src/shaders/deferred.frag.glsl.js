@@ -102,7 +102,7 @@ export default function(params) {
       vec3 L = (light.position - v_position) / light_distance;
       float lightIntensity = cubicGaussian(2.0 * light_distance / light.radius);
       // Extra term for blinn phong reflections, exp is 64
-      float lambert_term =  max(pow(dot(normal, hafl_dir_vec), 2.0), 0.0);
+      float lambert_term =  max(pow(dot(normal, hafl_dir_vec), 0.6), 0.0);
       fragColor += albedo * lambert_term * light.color * vec3(lightIntensity);
     }
     const vec3 ambientLight = vec3(0.025);
